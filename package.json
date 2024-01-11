@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm live-server"
+    "dev": "live-server"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  }
+  "license": "ISC"
 }
