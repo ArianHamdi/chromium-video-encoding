@@ -1,0 +1,12 @@
+{
+  "name": "chromium-video-encoding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
