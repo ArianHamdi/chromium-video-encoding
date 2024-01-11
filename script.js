@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const video = document.getElementById('bufferedVideo');
 
     // Video source URL
-    const videoSourceURL = './sample-audio-mono.mp4'; // Replace with your video URL
+    const videoSourceURL = './sample-audio-streo.mp4'; // Replace with your video URL
 
     // Fetch the video content
     fetch(videoSourceURL)
