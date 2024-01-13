@@ -1,34 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the video element
-    const video = document.getElementById('bufferedVideo');
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the video element
+  const video = document.getElementById("bufferedVideo");
 
-    // Video source URL
-    const videoSourceURL = './sample-audio-streo.mp4'; // Replace with your video URL
+  const hexPosition = "002E8B10";
 
-    // Fetch the video content
-    fetch(videoSourceURL)
-        .then(response => response.arrayBuffer())
-        .then(buffer => {
-            // Create a Blob from the buffer
-            const videoBlob = new Blob([buffer], { type: 'video/mp4' });
+  // Convert the hexadecimal position to a decimal number
+  const decimalPosition = parseInt(hexPosition, 16);
 
-            // Create a URL for the Blob
-            const videoBlobURL = URL.createObjectURL(videoBlob);
+  // Video source URL
+  const videoSourceURL = "./sample-audio-stereo.mp4"; // Replace with your video URL
+  // Fetch the video content
+  fetch(videoSourceURL)
+    .then((response) => response.arrayBuffer())
+    .then((buffer) => {
+      console.log(buffer.byteLength);
+      // Create a Blob from the buffer
+      const videoBlob = new Blob([buffer.slice(0,decimalPosition)], { type: "video/mp4",endings:"native" });
 
-            // Set the video source to the Blob URL
-            video.src = videoBlobURL;
+      // Create a URL for the Blob
+      const videoBlobURL = URL.createObjectURL(videoBlob);
 
-            // Optional: Preload the video for better user experience
-            video.preload = 'auto';
+      // Set the video source to the Blob URL
+      video.src = videoBlobURL;
 
-            // Optional: Add event listeners for video events
-            video.addEventListener('canplay', function () {
-                console.log('Video can start playing');
-            });
+      // Optional: Preload the video for better user experience
+      video.preload = "auto";
 
-            video.addEventListener('ended', function () {
-                console.log('Video playback ended');
-            });
-        })
-        .catch(error => console.error('Error fetching video:', error));
+      // Optional: Add event listeners for video events
+      video.addEventListener("canplay", function () {
+        console.log("Video can start playing");
+      });
+
+      video.addEventListener("ended", function () {
+        console.log("Video playback ended");
+      });
+    })
+    .catch((error) => console.error("Error fetching video:", error));
 });
